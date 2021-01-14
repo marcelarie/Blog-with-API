@@ -1,14 +1,14 @@
-function getPost(url, id) {
+function getPosts(url) {
     return $.ajax({
         url: `${url}`,
         data: 'json',
         type: 'GET',
         success: function (data, textStatus, jqXHR) {
             data.forEach(post => {
-                console.log(post)
                 printPosts(post)
             })
-        }, error: function (jqXHR, textStatus, errorThrown) {}
+        },
+        error: function (jqXHR, textStatus, errorThrown) {}
     });
 }
 
@@ -17,7 +17,7 @@ function printPosts(post) {
     postsContainer.append(`<article class='post'>
                 <div class='post--content'>
                     <button value='${post.id}' class='post--content--title'>${post.title}</h3>
-                        <button value='${post.id}' class='post--content--body'>${post.body}</button>
+                    <button value='${post.id}' class='post--content--body'>${post.body}</button>
                 </div>
                 <div class='post--buttons'>
                     <button value='${post.id}' class='post--buttons--edit material-icons'>edit</button>
@@ -26,10 +26,9 @@ function printPosts(post) {
             </article>`);
 }
 
-
 function getUser(id) {
 }
 
 function getComment(id) {
 }
-export {getPost, getUser, getComment}
+export {getPosts, getUser, getComment}

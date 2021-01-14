@@ -8,23 +8,29 @@
     --light-grey:#a8998a;
 }
 body{
-    display:flex;
+    
     margin:0;
     padding:0;
     font-family: 'Ubuntu', sans-serif;
     background-color: var(--light-grey);
     color:var(--dark);
+    padding: 0 5vw;
+}
+main{
+    display:flex;
+    width:fit-content;
+    margin:0 auto;
 }
 
 .header{
-    width: 10vw;
+    width: fit-content;
     height: 100vh;
     margin:0;
 }
 
 .header>h1{
     font-family: 'Anton', sans-serif;
-    font-size: 10vw;
+    font-size: 14vh;
     text-align:center;
     margin:0.6em 0;
     writing-mode:vertical-lr;
@@ -33,9 +39,8 @@ body{
 }
 
 .main{
-    width: 90vw;
-    height: 100vh;
-    margin:0;
+    max-width:70vw;
+    margin:0 0;
 }
 
 .posts{

@@ -6,28 +6,30 @@ function getPost(url, id) {
         success: function (data, textStatus, jqXHR) {
             data.forEach(post => {
                 console.log(post)
-                const userId = post.userId
-                if (id === userId) {
-                    createPost(post)
-                }
+                printPosts(post)
             })
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-        }
+        }, error: function (jqXHR, textStatus, errorThrown) {}
     });
 }
+
+function printPosts(post) {
+    const postsContainer = $('#posts--container');
+    postsContainer.append(`<article class='post'>
+                <div class='post--content'>
+                    <button value='${post.id}' class='post--content--title'>${post.title}</h3>
+                        <button value='${post.id}' class='post--content--body'>${post.body}</button>
+                </div>
+                <div class='post--buttons'>
+                    <button value='${post.id}' class='post--buttons--edit material-icons'>edit</button>
+                    <button value='${post.id}' class='post--buttons--delete material-icons'>delete</button>
+                </div>
+            </article>`);
+}
+
 
 function getUser(id) {
 }
 
 function getComment(id) {
 }
-
-function createPost(post) {
-    const div = document.createElement('div')
-    const postTitle = document.createElement('h1')
-    const postBody = document.createElement('p')
-    const user = document.createElement('')
-}
-
 export {getPost, getUser, getComment}

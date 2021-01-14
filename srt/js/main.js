@@ -1,5 +1,8 @@
-import {getData} from './data/data.js'
+import {getUser, getPost, getComment} from './data/data.js'
 
 
-getData('https://jsonplaceholder.typicode.com/posts');
-getData('https://jsonplaceholder.typicode.com/users')
+const posts = 'https://jsonplaceholder.typicode.com/posts'
+const users = 'https://jsonplaceholder.typicode.com/users'
+
+getPost(posts, 1)
+

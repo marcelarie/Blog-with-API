@@ -1,25 +1,40 @@
+:root{
+    --main:#d79921;
+    --light:#fbf1c7;
+    --dark:#1d2021;
+    --red:#cc241d;
+    --green:#98971a;
+    --smooth:#504945;
+    --light-grey:#a8998a;
+}
 body{
+    display:flex;
     margin:0;
     padding:0;
     font-family: 'Ubuntu', sans-serif;
+    background-color: var(--light-grey);
+    color:var(--dark);
 }
 
 .header{
-    width: 100vw;
-    height: 10vh;
+    width: 10vw;
+    height: 100vh;
     margin:0;
 }
 
 .header>h1{
-    font-size: xx-large;
-    text-align: center;
-    margin:0;
-    padding:1em 0;
+    font-family: 'Anton', sans-serif;
+    font-size: 10vw;
+    text-align:center;
+    margin:0.6em 0;
+    writing-mode:vertical-lr;
+    transform: rotate(180deg);
+
 }
 
 .main{
-    width: 100vw;
-    height: 90vh;
+    width: 90vw;
+    height: 100vh;
     margin:0;
 }
 
@@ -29,18 +44,19 @@ body{
     width: 90%;
     height: 95%;
     margin:auto;
-    padding: 0.5em 0;
-    background-color: aqua;
-    border-radius: 10px;
+    padding: 0.5em 1em;
+    background-color: var(--smooth);
+    border-radius: 7.5px;
 }
 
 .post{
     display:flex;
-    background-color: bisque;
+    background-color: var(--dark);
+    
     width: 95%;
     height: fit-content;
     padding: 1em;
-    border-radius: 10px;
+    border-radius: 7.5px;
     margin: 0.5em auto;
 }
 
@@ -48,12 +64,14 @@ body{
     display: flex;
     width:90%;
     flex-direction: column;
+    
 }
 .post--content> button{
     width:100%;
     padding: 0.2em 0;
     background-color: #0000;
     border:none;
+    
 }
 .post--content--title{
     text-align: left;
@@ -62,6 +80,7 @@ body{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color:var(--main) ;
 }
 .post--content--body{
     text-align: left;
@@ -70,6 +89,7 @@ body{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    color:var(--light);
 }
 
 .post--buttons{
@@ -84,7 +104,14 @@ body{
     width: fit-content;
     margin:auto;
     border-radius: 50%;
-    background-color: blue;
+    
     padding: 0.5em;
+}
+.post--buttons--edit{
+    background-color: var(--green);
+    
+}
+.post--buttons--delete{
+    background-color: var(--red);
 }
 

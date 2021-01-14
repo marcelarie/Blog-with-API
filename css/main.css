@@ -12,14 +12,16 @@ body{
     margin:0;
     padding:0;
     font-family: 'Ubuntu', sans-serif;
-    background-color: var(--light-grey);
-    color:var(--dark);
+    background-color: var(--dark);
+    color:var(--light-grey);
     padding: 0 5vw;
+    overflow: hidden;
 }
 main{
     display:flex;
     width:fit-content;
     margin:0 auto;
+    
 }
 
 .header{
@@ -40,29 +42,41 @@ main{
 
 .main{
     max-width:70vw;
-    margin:0 0;
+    margin:0 auto;
+    
 }
 
 .posts{
     display:flex;
-    flex-direction: column;
-    width: 90%;
-    height: 95%;
-    margin:auto;
-    padding: 0.5em 1em;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 1em 1em;
     background-color: var(--smooth);
-    border-radius: 7.5px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
+
 
 .post{
     display:flex;
+    flex-direction: column;
     background-color: var(--dark);
-    
-    width: 95%;
+    width: 30.3333%;
     height: fit-content;
-    padding: 1em;
+    padding: 1%;
     border-radius: 7.5px;
-    margin: 0.5em auto;
+    margin: 0.5em 0.5%;
+    
+    
+}
+.post:last-child{
+    margin-bottom: 2em;
+}
+
+.post>img{
+    width:100%;
 }
 
 .post--content{
@@ -78,7 +92,13 @@ main{
     border:none;
     
 }
+.post--content> button:hover, .post--content> button:focus {
+    outline: none;
+    text-decoration: underline;
+    
+}
 .post--content--title{
+    text-transform: capitalize;
     text-align: left;
     font-size: x-large;
     font-weight: 700;
@@ -98,25 +118,56 @@ main{
 }
 
 .post--buttons{
-    display: flex;
-    width:10%;
-    justify-content: space-evenly;
+    display:flex;
+    width:100%;
+    
+    justify-content: flex-end;
+    
 }
 
-.post--buttons--edit, .post--buttons--delete{
-    border:none;
-    height: fit-content;
+.post--buttons>button{
+    height:fit-content;
     width: fit-content;
-    margin:auto;
-    border-radius: 50%;
-    
-    padding: 0.5em;
+    margin:0.2em;
+    border-radius: 10%;
+    padding: 0.2em;
+    transition: height 1s ease-in-out;
 }
+
+
 .post--buttons--edit{
     background-color: var(--green);
+    border:2px solid var(--green);
     
 }
 .post--buttons--delete{
     background-color: var(--red);
+    border:2px solid var(--red);
 }
+.post--buttons> button:hover, .post--buttons> button:focus {
+    outline: none;
+    border:2px solid var(--main);
+}
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--dark); 
+    border:var(--main)
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:var(--main); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--main); 
+  }
 

@@ -1,8 +1,11 @@
-import {getUser, getPosts, getComment} from './data/data.js'
+import {getData} from './data/data.js'
+import {resizeH1} from './modal/resizeH1.js'
 
 
-const posts = 'https://jsonplaceholder.typicode.com/posts'
-const users = 'https://jsonplaceholder.typicode.com/users'
+getData('https://jsonplaceholder.typicode.com/posts');
+getData('https://jsonplaceholder.typicode.com/users')
 
-getPosts(posts)
 
+$(document).ready(function () {
+    resizeH1();
+});

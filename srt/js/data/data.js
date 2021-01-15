@@ -30,7 +30,7 @@ function getUser(id) {
 function getComment(id) {}
 
 function printPost(post) {
-  $("#posts--container").append(`<article class='post shadows'>
+  $("#posts--container").append(`<article class='post shadows' id='${post.id}'>
         <img src="https://picsum.photos/200/200?random=${post.id}">
         <div class='post--content'>
             <button userID='${post.userId}' value='${post.id}' class='post--content--title clickable'>${post.title}</h3>
@@ -47,4 +47,20 @@ function printUser(user) {
   $(".modal--user").text(user.name);
 }
 
-export { getPosts, getUser, getComment };
+function deletePost(id){
+    let $post=$(`#${id}`);
+    $post.addClass('disaled');
+    $.ajax({
+        url: `https://jsonplaceholder.typicode.com/posts/${id}`,
+        type: "DELETE",
+        success: function (data, textStatus) {
+            $($post).fadeOut();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          // error callback
+          $post.removeClass('disaled');
+        },
+      });
+}
+
+export { getPosts, getUser, getComment, deletePost};

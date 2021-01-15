@@ -1,5 +1,6 @@
 let start=0;
 let canLoadMore=true;
+let posts=[];
 
 function getPosts() {
     if(start<100){
@@ -7,6 +8,7 @@ function getPosts() {
             url: `https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=9`,
             type: "GET",
             success: function (data, textStatus, jqXHR) {
+                posts=posts.concat(data);
                 printAllPosts(data);
                 start+=9;
                 canLoadMore=true;
@@ -20,14 +22,12 @@ function printAllPosts(posts) {
   posts.forEach((post) => {
     printPost(post);
   });
-  detectScrollBottom()
 }
 
 function detectScrollBottom(){
     $('.posts').scroll(function() {
         let lastPost=$('.post:last-child');
         if($(lastPost).position().top-$('.posts').height()+$(lastPost).height()<=0 && canLoadMore){
-            console.log(lastPost)
             getPosts();
             canLoadMore=false;
         }
@@ -48,7 +48,36 @@ function getUser(id) {
   });
 }
 
-function getComment(id) {}
+function getComments(id) {
+    $.ajax({
+        url: `https://jsonplaceholder.typicode.com/posts/${id}/comments`,
+        type: "GET",
+        success: function (data, textStatus) {
+            console.log(data)
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          // error callback
+        },
+      });
+}
+
+function editPost(id, title, body){
+      $.ajax({
+        url: "https://jsonplaceholder.typicode.com/posts/"+id,
+        type: "PATCH",
+        timeout: 0,
+        headers: {
+            "Content-Type": "application/json",
+          },
+        data: JSON.stringify({"title":title,"body":body}),
+        success: function (data, textStatus, jqXHR) {
+            posts[id-1].title=title;
+            posts[id-1].body=body;
+            console.log(posts[id-1]);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {},
+    }); 
+}
 
 function printPost(post) {
   $("#posts--container").append(`<article class='post shadows' id='${post.id}'>
@@ -84,4 +113,4 @@ function deletePost(id){
       });
 }
 
-export { getPosts, getUser, getComment, deletePost};
+export { getPosts, getUser, getComments, deletePost,editPost, detectScrollBottom};

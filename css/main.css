@@ -186,3 +186,6 @@ main{
     background: var(--main); 
   }
 
+.none {
+    display: none;
+}

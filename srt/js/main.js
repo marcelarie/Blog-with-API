@@ -1,12 +1,8 @@
-import {getPosts, getUser, getPost} from './data/data.js'
-import {resizeH1, newSize} from './modal/resizeH1.js'
+import {getPosts, getUser, getPost, detectScrollBottom} from './data/data.js'
 import {showOrHide, filterContent} from './modal/showModal.js'
 
-
-
 $(document).ready(function () {
-    newSize();
-    resizeH1();
+    detectScrollBottom();
     getPosts('https://jsonplaceholder.typicode.com/posts');
     buttonListeners();
 });
@@ -26,3 +22,5 @@ function buttonListeners() {
             showOrHide('show')
             getUser(userId);
         };
+    });
+};

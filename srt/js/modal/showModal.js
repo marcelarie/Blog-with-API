@@ -30,7 +30,7 @@ function filterContent(parentTag, parent) {
         })
         const result = {title, body, url}
         return result;
-    }
+    };
 }
 
 export {showOrHide, filterContent}

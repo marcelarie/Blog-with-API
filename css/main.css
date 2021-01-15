@@ -125,8 +125,8 @@ main {
 .post--buttons > button {
     height: fit-content;
     width: fit-content;
-    margin:0.2em;
-    margin-top:0.5em;
+    margin: 0.2em;
+    margin-top: 0.5em;
     border-radius: 10%;
     padding: 0.2em;
     transition: height 1s ease-in-out;
@@ -166,6 +166,7 @@ main {
     min-width: 81vw;
     padding: 0 2em;
     display: flex;
+    min-height: 70vh;
 }
 .modal--post--content {
     flex: 1;
@@ -193,12 +194,16 @@ main {
 .modal--comments {
     padding: 2em;
 }
+.modal--image {
+    background: transparent url(/srt/img/loading.gif);
+    background-repeat: no-repeat;
+}
 .modal--comments button {
     all: unset;
     font-size: 1.4em;
     border: 2px solid var(--light-grey);
     padding: 0.2em 0.5em;
-    border-radius: 7.50px;
+    border-radius: 7.5px;
     transition: 0.5s;
 }
 .modal--comments button:active {
@@ -222,8 +227,8 @@ main {
 .shadows {
     box-shadow: 2px 2px 4px #000000;
 }
-.disaled{
-    opacity:0.5;
+.disaled {
+    opacity: 0.5;
 }
 
 ::-webkit-scrollbar {

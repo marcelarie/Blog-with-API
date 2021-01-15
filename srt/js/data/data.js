@@ -98,8 +98,8 @@ function printUser(user) {
     $('.modal--mail').text(user.email)
 }
 function getPost(title, url, body) {
-    $('.modal--post--title').text(title)
-    $('.modal--post--body').text(body)
+    $('.modal--post--title').val(title)
+    $('.modal--post--body').val(body)
     $('#modal--image').attr('src', url)
 }
 

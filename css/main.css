@@ -160,16 +160,18 @@ main {
     color: var(--light-grey);
     outline: none;
     border: none;
-    font-size: 3em;
+    font-size: 2em;
+    margin-left:0.5em;
 }
 .modal--post {
     min-width: 81vw;
-    padding: 0 2em;
+    padding: 0 1.5em;
     display: flex;
     min-height: 70vh;
 }
 .modal--post--content {
     flex: 1;
+    padding: 0 2em;
 }
 .modal--post img {
     margin: 0 auto;
@@ -178,18 +180,27 @@ main {
     max-height: 500px;
 }
 .modal--post--title {
+    all: unset;
     font-size: 2em;
     text-align: center;
-    margin: 0.5em 0;
+    margin-top: 0.25em;
 }
 .modal--post--body {
-    margin: 1em 0.5em;
-}
-.modal--user {
-    font-size: 1.5em;
+    all: unset;
+    font-size: 1.10em;
+    border: 5px solid red;
+    width: 100%;
+    height: 80%;
+    margin: 1em 0em;
 }
 .modal--mail {
     font-size: 1.3em;
+    text-align: right;
+    margin:0.25em 0;
+}
+.modal--username {
+    text-align: right;
+    font-size: 1.5em;
 }
 .modal--comments {
     padding: 2em;

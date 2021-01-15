@@ -73,7 +73,7 @@ function editPost(id, title, body){
         success: function (data, textStatus, jqXHR) {
             posts[id-1].title=title;
             posts[id-1].body=body;
-            console.log(posts[id-1]);
+            changePost(id, title, body);
         },
         error: function (jqXHR, textStatus, errorThrown) {},
     }); 
@@ -112,5 +112,11 @@ function deletePost(id){
         },
       });
 }
+
+function changePost(id, title, body){
+    console.log(title);
+    $(`#${id} .post--content--title`).text(title);
+    $(`#${id} .post--content--body`).text(body);
+};
 
 export { getPosts, getUser, getComments, deletePost,editPost, detectScrollBottom};

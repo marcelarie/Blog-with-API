@@ -47,8 +47,9 @@ function printUser(user) {
     $('.modal--username').text(user.username)
     $('.modal--mail').text(user.email)
 }
-function getPost(title, url) {
+function getPost(title, url, body) {
     $('.modal--post--title').text(title)
+    $('.modal--post--body').text(body)
     $('#modal--image').attr('src', url)
 }
 

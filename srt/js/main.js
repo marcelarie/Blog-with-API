@@ -17,13 +17,23 @@ function buttonListeners() {
             const userId = e.target.getAttribute('userId');
             const parent = e.target.parentElement
             if (parent.classList.contains('post')) {
-                const url = parent.children[0].getAttribute('src')
+                const splittedUrl = parent.children[0].getAttribute('src').split('/')
                 const title = parent.children[1].children[0].textContent
-                getPost(title, url);
+                const body = parent.children[1].children[0].textContent
+                const url = splittedUrl.map(item => {
+                    item = item.replace('200', '600')
+                    return item
+                })
+                getPost(title, url.join('/'), body);
             } else {
                 const title = parent.children[0].textContent
-                const url = parent.parentElement.children[0].getAttribute('src')
-                getPost(title, url);
+                const body = parent.children[0].textContent
+                const splittedUrl = parent.parentElement.children[0].getAttribute('src').split('/')
+                const url = splittedUrl.map(item => {
+                    item = item.replace('200', '600')
+                    return item
+                })
+                getPost(title, url.join('/'), body);
             }
             showOrHide('show')
             getUser(userId);

@@ -26,7 +26,3 @@ function buttonListeners() {
             showOrHide('show')
             getUser(userId);
         };
-    })
-}
-
-

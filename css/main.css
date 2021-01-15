@@ -18,14 +18,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
-    background-color: var(--light-grey);
-    color: var(--dark);
+    background-color: var(--dark);
+    color:var(--light-grey);
     padding: 0 5vw;
+    overflow: hidden;
 }
-main {
-    display: flex;
-    width: fit-content;
-    margin: 0 auto;
+main{
+    display:flex;
+    width:fit-content;
+    margin:0 auto;
+    
 }
 
 .header {
@@ -43,31 +45,40 @@ main {
     transform: rotate(180deg);
 }
 
-.main {
-    max-width: 70vw;
-    margin: 0 0;
+.main{
+    max-width:70vw;
+    margin:0 auto;
+    
 }
 
-.posts {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    height: 95%;
-    margin: auto;
-    padding: 0.5em 1em;
+.posts{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 1em 1em;
     background-color: var(--smooth);
-    border-radius: 7.5px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
-.post {
-    display: flex;
+.post{
+    display:flex;
+    flex-direction: column;
     background-color: var(--dark);
-
-    width: 95%;
+    width: 32%;
     height: fit-content;
-    padding: 1em;
+    padding: 1%;
     border-radius: 7.5px;
-    margin: 0.5em auto;
+    margin: 0.5em 0.5%;
+}
+.post:last-child{
+    margin-bottom: 2em;
+}
+
+.post>img{
+    width:100%;
 }
 
 .post--content {
@@ -81,7 +92,13 @@ main {
     background-color: #0000;
     border: none;
 }
-.post--content--title {
+.post--content> button:hover, .post--content> button:focus {
+    outline: none;
+    text-decoration: underline;
+    
+}
+.post--content--title{
+    text-transform: capitalize;
     text-align: left;
     font-size: x-large;
     font-weight: 700;
@@ -100,65 +117,72 @@ main {
     color: var(--light);
 }
 
-.post--buttons {
-    display: flex;
-    width: 10%;
-    justify-content: space-evenly;
+.post--buttons{
+    display:flex;
+    width:100%;
+    justify-content: flex-end;
+    
 }
 
-.post--buttons--edit,
-.post--buttons--delete {
-    border: none;
-    height: fit-content;
+.post--buttons>button{
+    height:fit-content;
     width: fit-content;
-    margin: auto;
-    border-radius: 50%;
-
-    padding: 0.5em;
+    margin:0.2em;
+    border-radius: 10%;
+    padding: 0.2em;
+    transition: height 1s ease-in-out;
+    color:#141414
 }
-.post--buttons--edit {
+
+
+.post--buttons--edit{
     background-color: var(--green);
+    border:2px solid var(--green);
+    
 }
 .post--buttons--delete {
     background-color: var(--red);
+    border:2px solid var(--red);
+}
+.post--buttons> button:hover, .post--buttons> button:focus {
+    outline: none;
+    border:2px solid var(--main);
 }
 
-/* modal */
-.modal {
-    background-color: black;
+
+.clickable{
+    cursor:pointer;
 }
-.modal--container {
-    position: fixed;
-    background-color: var(--light-grey);
-    border-radius: 5px;
-    top: 0;
-    left: 0;
-    transform: translate(calc(50vw - 50%), calc(50vh - 50%));
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
-.modal--buttons--close {
-    float: right;
-    border: none;
-    font-size: 2em;
-    background-color: transparent;
-}
-.modal-post {
-    display: flex;
-    flex-direction: row;
+.shadows{
+    box-shadow: 2px 2px 4px #000000;
 }
 
-.modal--post--title {
-    font-size: 2.5em;
-}
-.modal--user {
-    font-size: 1.5em;
-}
-.modal--username {
-    font-size: 1.5em;
-}
-.modal--mail {
-    font-size: 1.5em;
-}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--dark); 
+    border:var(--main)
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:var(--main); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--main); 
+  }
 

@@ -1,13 +1,13 @@
 import {getPosts, getUser} from './data/data.js'
-import {resizeH1} from './modal/resizeH1.js'
+import {resizeH1, newSize} from './modal/resizeH1.js'
 
-
-getPosts('https://jsonplaceholder.typicode.com/posts');
-getUser(1)
 
 
 $(document).ready(function () {
+    newSize();
     resizeH1();
+    getPosts('https://jsonplaceholder.typicode.com/posts');
+    getUser(1);
 });
 
 function buttonListeners() {

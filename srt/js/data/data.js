@@ -1,19 +1,40 @@
-function getPosts(url) {
-  $.ajax({
-    url: `${url}`,
-    type: "GET",
-    success: function (data, textStatus, jqXHR) {
-      printAllPosts(data);
-    },
-    error: function (jqXHR, textStatus, errorThrown) {},
-  });
+let start=0;
+let canLoadMore=true;
+
+function getPosts() {
+    if(start<100){
+        $.ajax({
+            url: `https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=9`,
+            type: "GET",
+            success: function (data, textStatus, jqXHR) {
+                printAllPosts(data);
+                start+=9;
+                canLoadMore=true;
+            },
+            error: function (jqXHR, textStatus, errorThrown) {},
+        });  
+    }
 }
 
 function printAllPosts(posts) {
   posts.forEach((post) => {
     printPost(post);
   });
+  detectScrollBottom()
 }
+
+function detectScrollBottom(){
+    $('.posts').scroll(function() {
+        let lastPost=$('.post:last-child');
+        if($(lastPost).position().top-$('.posts').height()+$(lastPost).height()<=0 && canLoadMore){
+            console.log(lastPost)
+            getPosts();
+            canLoadMore=false;
+        }
+     });
+}
+
+
 function getUser(id) {
   $.ajax({
     url: `https://jsonplaceholder.typicode.com/users/${id}`,

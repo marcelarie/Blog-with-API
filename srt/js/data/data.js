@@ -19,40 +19,40 @@ function getPosts() {
 }
 
 function printAllPosts(posts) {
-  posts.forEach((post) => {
-    printPost(post);
-  });
+    posts.forEach((post) => {
+        printPost(post);
+    });
 }
 
 function detectScrollBottom() {
-  $(".posts").scroll(function () {
-    detectBottom()
-  });
+    $(".posts").scroll(function () {
+        detectBottom()
+    });
 }
 function detectBottom() {
     console.log('aaaa');
-  let lastPost = $(".post:last-child");
-  if (
-    $(lastPost).position().top - $(".posts").height() + $(lastPost).height() <=
-      0 &&
-    canLoadMore
-  ) {
-    getPosts();
-    canLoadMore = false;
-  }
+    let lastPost = $(".post:last-child");
+    if (
+        $(lastPost).position().top - $(".posts").height() + $(lastPost).height() <=
+        0 &&
+        canLoadMore
+    ) {
+        getPosts();
+        canLoadMore = false;
+    }
 }
 
 function getUser(id) {
-  $.ajax({
-    url: `https://jsonplaceholder.typicode.com/users/${id}`,
-    type: "GET",
-    success: function (data, textStatus) {
-      printUser(data);
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      // error callback
-    },
-  });
+    $.ajax({
+        url: `https://jsonplaceholder.typicode.com/users/${id}`,
+        type: "GET",
+        success: function (data, textStatus) {
+            printUser(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // error callback
+        },
+    });
 }
 
 function getComments(id) {
@@ -61,7 +61,7 @@ function getComments(id) {
         type: "GET",
         success: function (data, textStatus) {
             $(".modal--comments--container").text('');
-            data.forEach(comment=>printComment(comment));
+            data.forEach(comment => printComment(comment));
         },
         error: function (jqXHR, textStatus, errorThrown) {
             // error callback
@@ -100,8 +100,8 @@ function printPost(post) {
     </article>`);
 }
 
-function printComment(comment){
-    let c=`<div class='comment'>
+function printComment(comment) {
+    let c = `<div class='comment'>
     <div class='comment--header'>
         <h3 class='comment--title'>${comment.name}</h3>
         <p class='comment--user'>${comment.email}</p>
@@ -109,52 +109,53 @@ function printComment(comment){
     <br>
     <p class='comment--body'>${comment.body}</p>
 </div>`;
-$(".modal--comments--container").append(c)
+    $(".modal--comments--container").append(c)
 
 
 }
 
 function printUser(user) {
-  $(".modal--username").text(user.username);
-  $(".modal--mail").text(user.email);
+    $(".modal--username").text(user.username);
+    $(".modal--mail").text(user.email);
 }
-function getPost(title, url, body) {
+function getPost(title, url, body, id) {
     $('.modal--post--title').val(title)
     $('.modal--post--body').val(body)
     $('#modal--image').attr('src', url)
-    document.querySelector('.modal--comments-load').value=id;
+    document.querySelector('.modal--comments-load').value = id;
 }
 
 function deletePost(id) {
-  let $post = $(`#${id}`);
-  $post.addClass("disaled");
-  $.ajax({
-    url: `https://jsonplaceholder.typicode.com/posts/${id}`,
-    type: "DELETE",
-    success: function (data, textStatus) {
-      $($post).fadeOut(500, function(){
-        setTimeout(detectBottom, 10)})
-      
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      // error callback
-      $post.removeClass("disaled");
-    },
-  });
+    let $post = $(`#${id}`);
+    $post.addClass("disaled");
+    $.ajax({
+        url: `https://jsonplaceholder.typicode.com/posts/${id}`,
+        type: "DELETE",
+        success: function (data, textStatus) {
+            $($post).fadeOut(500, function () {
+                setTimeout(detectBottom, 10)
+            })
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // error callback
+            $post.removeClass("disaled");
+        },
+    });
 }
 
 function changePost(id, title, body) {
-  console.log(title);
-  $(`#${id} .post--content--title`).text(title);
-  $(`#${id} .post--content--body`).text(body);
+    console.log(title);
+    $(`#${id} .post--content--title`).text(title);
+    $(`#${id} .post--content--body`).text(body);
 }
 
 export {
-  getPosts,
-  getUser,
-  getComments,
-  deletePost,
-  editPost,
-  detectScrollBottom,
-  getPost
+    getPosts,
+    getUser,
+    getComments,
+    deletePost,
+    editPost,
+    detectScrollBottom,
+    getPost
 };

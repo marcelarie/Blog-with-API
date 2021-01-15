@@ -19,9 +19,9 @@ function getPosts() {
 }
 
 function printAllPosts(posts) {
-  posts.forEach((post) => {
-    printPost(post);
-  });
+    posts.forEach((post) => {
+        printPost(post);
+    });
 }
 
 function detectScrollBottom(){
@@ -36,16 +36,16 @@ function detectScrollBottom(){
 
 
 function getUser(id) {
-  $.ajax({
-    url: `https://jsonplaceholder.typicode.com/users/${id}`,
-    type: "GET",
-    success: function (data, textStatus) {
-      printUser(data);
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      // error callback
-    },
-  });
+    $.ajax({
+        url: `https://jsonplaceholder.typicode.com/users/${id}`,
+        type: "GET",
+        success: function (data, textStatus) {
+            printUser(data);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // error callback
+        },
+    });
 }
 
 function getComments(id) {
@@ -94,7 +94,9 @@ function printPost(post) {
 }
 
 function printUser(user) {
-  $(".modal--user").text(user.name);
+    $(".modal--user").text(user.name);
+    $('.modal--username').text(user.username)
+    $('.modal--mail').text(user.email)
 }
 
 function deletePost(id){

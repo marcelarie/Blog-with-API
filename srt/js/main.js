@@ -1,6 +1,6 @@
 import {getPosts, getUser, getPost} from './data/data.js'
 import {resizeH1, newSize} from './modal/resizeH1.js'
-import {showOrHide} from './modal/showModal.js'
+import {showOrHide, filterContent} from './modal/showModal.js'
 
 
 
@@ -13,30 +13,20 @@ $(document).ready(function () {
 
 function buttonListeners() {
     document.addEventListener('click', function (e) {
+        const userId = e.target.getAttribute('userId');
+        const parent = e.target.parentElement
         if (e.target && e.target.classList.contains('open--modal')) {
-            const userId = e.target.getAttribute('userId');
-            const parent = e.target.parentElement
             if (parent.classList.contains('post')) {
-                const splittedUrl = parent.children[0].getAttribute('src').split('/')
-                const title = parent.children[1].children[0].textContent
-                const body = parent.children[1].children[0].textContent
-                const url = splittedUrl.map(item => {
-                    item = item.replace('200', '600')
-                    return item
-                })
-                getPost(title, url.join('/'), body);
+                const post = filterContent('post', parent)
+                getPost(post.title, post.url.join('/'), post.body);
             } else {
-                const title = parent.children[0].textContent
-                const body = parent.children[0].textContent
-                const splittedUrl = parent.parentElement.children[0].getAttribute('src').split('/')
-                const url = splittedUrl.map(item => {
-                    item = item.replace('200', '600')
-                    return item
-                })
-                getPost(title, url.join('/'), body);
+                const post = filterContent('else', parent)
+                getPost(post.title, post.url.join('/'), post.body);
             }
             showOrHide('show')
             getUser(userId);
         };
     })
 }
+
+

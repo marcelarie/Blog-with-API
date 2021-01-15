@@ -1,16 +1,22 @@
-:root{
-    --main:#d79921;
-    --light:#fbf1c7;
-    --dark:#1d2021;
-    --red:#cc241d;
-    --green:#98971a;
-    --smooth:#504945;
-    --light-grey:#a8998a;
+:root {
+    --main: #d79921;
+    --light: #fbf1c7;
+    --dark: #1d2021;
+    --red: #cc241d;
+    --green: #98971a;
+    --smooth: #504945;
+    --light-grey: #a8998a;
 }
-body{
-    
-    margin:0;
-    padding:0;
+* {
+    margin: unset;
+    padding: unset;
+    box-sizing: border-box;
+    text-decoration: unset;
+    color: unset;
+}
+body {
+    margin: 0;
+    padding: 0;
     font-family: 'Ubuntu', sans-serif;
     background-color: var(--dark);
     color:var(--light-grey);
@@ -24,18 +30,18 @@ main{
     
 }
 
-.header{
+.header {
     width: fit-content;
     height: 100vh;
-    margin:0;
+    margin: 0;
 }
 
-.header>h1{
+.header > h1 {
     font-family: 'Anton', sans-serif;
     font-size: 14vh;
-    text-align:center;
-    margin:0.6em 0;
-    writing-mode:vertical-lr;
+    text-align: center;
+    margin: 0.6em 0;
+    writing-mode: vertical-lr;
     transform: rotate(180deg);
 }
 
@@ -57,18 +63,15 @@ main{
     overflow-y: scroll;
 }
 
-
 .post{
     display:flex;
     flex-direction: column;
     background-color: var(--dark);
-    width: 30.3333%;
+    width: 32%;
     height: fit-content;
     padding: 1%;
     border-radius: 7.5px;
     margin: 0.5em 0.5%;
-    
-    
 }
 .post:last-child{
     margin-bottom: 2em;
@@ -78,18 +81,16 @@ main{
     width:100%;
 }
 
-.post--content{
+.post--content {
     display: flex;
-    width:90%;
+    width: 90%;
     flex-direction: column;
-    
 }
-.post--content> button{
-    width:100%;
+.post--content > button {
+    width: 100%;
     padding: 0.2em 0;
     background-color: #0000;
-    border:none;
-    
+    border: none;
 }
 .post--content> button:hover, .post--content> button:focus {
     outline: none;
@@ -104,22 +105,21 @@ main{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    color:var(--main) ;
+    color: var(--main);
 }
-.post--content--body{
+.post--content--body {
     text-align: left;
-    font-size:large;
+    font-size: large;
     font-weight: 400;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    color:var(--light);
+    color: var(--light);
 }
 
 .post--buttons{
     display:flex;
     width:100%;
-    
     justify-content: flex-end;
     
 }
@@ -131,6 +131,7 @@ main{
     border-radius: 10%;
     padding: 0.2em;
     transition: height 1s ease-in-out;
+    color:#141414
 }
 
 
@@ -139,7 +140,7 @@ main{
     border:2px solid var(--green);
     
 }
-.post--buttons--delete{
+.post--buttons--delete {
     background-color: var(--red);
     border:2px solid var(--red);
 }
@@ -159,6 +160,9 @@ main{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+.shadows{
+    box-shadow: 2px 2px 4px #000000;
 }
 
 

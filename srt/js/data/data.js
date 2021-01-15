@@ -3,12 +3,14 @@ function getPosts(url) {
         url: `${url}`,
         type: 'GET',
         success: function (data, textStatus) {
-            data.forEach(post => {
+            data.forEach((post) => {
                 printPosts(post)
             })
         },
-        error: function (jqXHR, textStatus, errorThrown) {}
-    });
+        error: function (jqXHR, textStatus, errorThrown) {
+
+        },
+    })
 }
 
 function getUser(id) {
@@ -20,11 +22,21 @@ function getUser(id) {
         },
         error: function (jqXHR, textStatus, errorThrown) {
             // error callback
-        }
-    });
+        },
+    })
 }
 
 function getComment(id) {
+    $.ajax({
+        url: `https://jsonplaceholder.typicode.com/users/${id}`,
+        type: 'GET',
+        success: function (data, textStatus) {
+            printUser(data)
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            // error callback
+        },
+    })
 }
 
 function printPosts(post) {
@@ -37,12 +49,13 @@ function printPosts(post) {
                     <button userID='${post.userId}' value='${post.id}' class='post--buttons--edit material-icons'>edit</button>
                     <button userID='${post.userId}' value='${post.id}' class='post--buttons--delete material-icons'>delete</button>
                 </div>
-            </article>`);
+            </article>`)
 }
-
 
 function printUser(user) {
     $('.modal--user').text(user.name)
+    $('.modal--username').text(user.username)
+    $('.modal--mail').text(user.email)
 }
 
 export {getPosts, getUser, getComment}

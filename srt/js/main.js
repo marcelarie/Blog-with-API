@@ -8,7 +8,7 @@ $(document).ready(function () {
     buttonListenersPosts();
     editModalListeners();
     modalInputListeners();
-    buttonsPostModal()
+    buttonsPostModal();
 });
 
 function buttonListenersPosts() {
@@ -38,12 +38,12 @@ function buttonListenersPosts() {
     });
 };
 
-function buttonsPostModal(){
-    $('#modal').on('click', function(e){
-        if (e.target && e.target.classList.contains('modal--buttons--close')){
+function buttonsPostModal() {
+    $('#modal').on('click', function (e) {
+        if (e.target && e.target.classList.contains('modal--buttons--close')) {
             showOrHide('hide');
         }
-        else if(e.target && e.target.classList.contains('modal--comments-load')){
+        else if (e.target && e.target.classList.contains('modal--comments-load')) {
             getComments(e.target.value);
         }
     })

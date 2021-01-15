@@ -184,10 +184,14 @@ main {
     max-height: 500px;
     max-width: 500px;
 }
+.modal--post textarea:first-child {
+    font-size: xx-large;
+}
 .modal--post--title {
-    font-size: xx-Large;
     all: unset;
+    width: 100%;
     text-align: center;
+    overflow: hidden;
     text-transform: capitalize;
     font-weight: 700;
     color: var(--main);
@@ -197,6 +201,8 @@ main {
     margin: 1em 0.5em;
     text-align: justify;
     text-transform: capitalize;
+    min-height: 80%;
+    min-width: 100%;
     font-weight: 700;
 }
 .modal--username {

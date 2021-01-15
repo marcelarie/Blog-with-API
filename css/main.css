@@ -19,15 +19,14 @@ body {
     padding: 0;
     font-family: 'Ubuntu', sans-serif;
     background-color: var(--dark);
-    color:var(--light-grey);
+    color: var(--light-grey);
     padding: 0 5vw;
     overflow: hidden;
 }
-main{
-    display:flex;
-    width:fit-content;
-    margin:0 auto;
-    
+main {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .header {
@@ -45,14 +44,13 @@ main{
     transform: rotate(180deg);
 }
 
-.main{
-    max-width:70vw;
-    margin:0 auto;
-    
+.main {
+    max-width: 70vw;
+    margin: 0 auto;
 }
 
-.posts{
-    display:flex;
+.posts {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -63,8 +61,8 @@ main{
     overflow-y: scroll;
 }
 
-.post{
-    display:flex;
+.post {
+    display: flex;
     flex-direction: column;
     background-color: var(--dark);
     width: 32.3333%;
@@ -74,8 +72,12 @@ main{
     margin: 0.5em 0.5%;
 }
 
-.post>img{
-    width:100%;
+.post:last-child {
+    margin-bottom: 2em;
+}
+
+.post > img {
+    width: 100%;
 }
 
 .post--content {
@@ -89,12 +91,12 @@ main{
     background-color: #0000;
     border: none;
 }
-.post--content> button:hover, .post--content> button:focus {
+.post--content > button:hover,
+.post--content > button:focus {
     outline: none;
     text-decoration: underline;
-    
 }
-.post--content--title{
+.post--content--title {
     text-transform: capitalize;
     text-align: left;
     font-size: x-large;
@@ -114,42 +116,100 @@ main{
     color: var(--light);
 }
 
-.post--buttons{
-    display:flex;
-    width:100%;
+.post--buttons {
+    display: flex;
+    width: 100%;
     justify-content: flex-end;
-    
 }
 
-.post--buttons>button{
-    height:fit-content;
+.post--buttons > button {
+    height: fit-content;
     width: fit-content;
     margin:0.2em;
     margin-top:0.5em;
     border-radius: 10%;
     padding: 0.2em;
     transition: height 1s ease-in-out;
-    color:#141414
+    color: #141414;
 }
 
-
-.post--buttons--edit{
+.post--buttons--edit {
     background-color: var(--green);
-    border:2px solid var(--green);
-    
+    border: 2px solid var(--green);
 }
 .post--buttons--delete {
     background-color: var(--red);
-    border:2px solid var(--red);
+    border: 2px solid var(--red);
 }
-.post--buttons> button:hover, .post--buttons> button:focus {
+.post--buttons > button:hover,
+.post--buttons > button:focus {
     outline: none;
-    border:2px solid var(--main);
+    border: 2px solid var(--main);
+}
+/* modal */
+.modal {
+    position: fixed;
+    background-color: var(--dark);
+    height: 100vh;
+    border-left: 5px solid var(--light-grey);
+    right: 0;
+    max-width: 81%;
+}
+.modal--buttons--close {
+    background-color: transparent;
+    color: var(--light-grey);
+    outline: none;
+    border: none;
+    font-size: 3em;
+}
+.modal--post {
+    min-width: 81vw;
+    padding: 0 2em;
+    display: flex;
+}
+.modal--post--content {
+    flex: 1;
+}
+.modal--post img {
+    margin: 0 auto;
+    border-radius: 5px;
+    flex: 0.7;
+    max-height: 500px;
+}
+.modal--post--title {
+    font-size: 2em;
+    text-align: center;
+    margin: 0.5em 0;
+}
+.modal--post--body {
+    margin: 1em 0.5em;
+}
+.modal--user {
+    font-size: 1.5em;
+}
+.modal--mail {
+    font-size: 1.3em;
+}
+.modal--comments {
+    padding: 2em;
+}
+.modal--comments button {
+    all: unset;
+    font-size: 1.4em;
+    border: 2px solid var(--light-grey);
+    padding: 0.2em 0.5em;
+    border-radius: 7.50px;
+    transition: 0.5s;
+}
+.modal--comments button:active {
+    transform: translateY(2px);
+    transform: translateX(2px);
+    font-size: 1.35em;
+    transition: 0s;
 }
 
-
-.clickable{
-    cursor:pointer;
+.clickable {
+    cursor: pointer;
 }
 .no-select {
     -webkit-touch-callout: none;
@@ -159,7 +219,7 @@ main{
     -ms-user-select: none;
     user-select: none;
 }
-.shadows{
+.shadows {
     box-shadow: 2px 2px 4px #000000;
 }
 .disaled{
@@ -168,21 +228,24 @@ main{
 
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: var(--dark); 
-    border:var(--main)
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background:var(--main); 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--main); 
-  }
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--dark);
+    border: var(--main);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--main);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--main);
+}
+
+.none {
+    display: none;
+}

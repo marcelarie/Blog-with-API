@@ -20,12 +20,12 @@ function printPost(post) {
     $('.posts').append(`<article class='post'>
                 <img src="https://picsum.photos/200/200?random=${post.id}">
                 <div class='post--content'>
-                    <button value='${post.id}' class='post--content--title'>${post.title}</h3>
-                    <button value='${post.id}' class='post--content--body'>${post.body}</button>
+                    <button value='${post.id}' class='post--content--title clickable'>${post.title}</h3>
+                    <button value='${post.id}' class='post--content--body clickable'>${post.body}</button>
                 </div>
                 <div class='post--buttons'>
-                    <button value='${post.id}' class='post--buttons--edit material-icons'>edit</button>
-                    <button value='${post.id}' class='post--buttons--delete material-icons'>delete</button>
+                    <button value='${post.id}' class='post--buttons--edit material-icons clickable'>edit</button>
+                    <button value='${post.id}' class='post--buttons--delete material-icons clickable'>delete</button>
                 </div>
             </article>`);
 }

@@ -37,7 +37,6 @@ main{
     margin:0.6em 0;
     writing-mode:vertical-lr;
     transform: rotate(180deg);
-
 }
 
 .main{
@@ -149,6 +148,18 @@ main{
     border:2px solid var(--main);
 }
 
+
+.clickable{
+    cursor:pointer;
+}
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 
 ::-webkit-scrollbar {

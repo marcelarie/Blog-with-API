@@ -118,9 +118,9 @@ function printUser(user) {
   $(".modal--username").text(user.username);
   $(".modal--mail").text(user.email);
 }
-function getPost(title, url, body, id) {
-    $('.modal--post--title').text(title)
-    $('.modal--post--body').text(body)
+function getPost(title, url, body) {
+    $('.modal--post--title').val(title)
+    $('.modal--post--body').val(body)
     $('#modal--image').attr('src', url)
     document.querySelector('.modal--comments-load').value=id;
 }

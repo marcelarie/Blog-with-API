@@ -60,7 +60,8 @@ function getComments(id) {
         url: `https://jsonplaceholder.typicode.com/posts/${id}/comments`,
         type: "GET",
         success: function (data, textStatus) {
-            console.log(data)
+            $(".modal--comments--container").text('');
+            data.forEach(comment=>printComment(comment));
         },
         error: function (jqXHR, textStatus, errorThrown) {
             // error callback
@@ -99,15 +100,29 @@ function printPost(post) {
     </article>`);
 }
 
+function printComment(comment){
+    let c=`<div class='comment'>
+    <div class='comment--header'>
+        <h3 class='comment--title'>${comment.name}</h3>
+        <p class='comment--user'>${comment.email}</p>
+    </div>
+    <br>
+    <p class='comment--body'>${comment.body}</p>
+</div>`;
+$(".modal--comments--container").append(c)
+
+
+}
+
 function printUser(user) {
-  $(".modal--user").text(user.name);
   $(".modal--username").text(user.username);
   $(".modal--mail").text(user.email);
 }
-function getPost(title, url, body) {
+function getPost(title, url, body, id) {
     $('.modal--post--title').text(title)
     $('.modal--post--body').text(body)
     $('#modal--image').attr('src', url)
+    document.querySelector('.modal--comments-load').value=id;
 }
 
 function deletePost(id) {
@@ -141,4 +156,5 @@ export {
   deletePost,
   editPost,
   detectScrollBottom,
+  getPost
 };

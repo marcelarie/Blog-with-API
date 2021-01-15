@@ -5,7 +5,8 @@ function showOrHide(parameter) {
     if (parameter === 'show') {
         modal.classList.remove('none');
     } else if (parameter === 'hide') {
-        modal.classList.add('none')
+        modal.classList.add('none');
+        $('.modal--comments--container').text('');
     }
 };
 

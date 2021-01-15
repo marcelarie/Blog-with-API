@@ -1,11 +1,13 @@
 import {getPosts, getUser, getPost, deletePost, detectScrollBottom} from './data/data.js'
-import {showOrHide, filterContent} from './modal/showModal.js'
+import {showOrHide, filterContent} from './modal/show-modal.js'
+import {editModalListeners, modalEditMode, modalInputListeners} from './modal/edit-modal.js'
 
 $(document).ready(function () {
     detectScrollBottom();
     getPosts('https://jsonplaceholder.typicode.com/posts');
     buttonListenersPost();
     editModalListeners();
+    modalInputListeners();
 });
 
 function buttonListenersPost() {
@@ -35,22 +37,3 @@ function buttonListenersPost() {
     });
 };
 
-function editModalListeners() {
-    document.getElementById('posts--container').addEventListener('click',
-        function (e) {
-            if (e.target && e.target.classList
-                .contains('post--buttons--edit')) {
-                modalEditMode('edit');
-            }
-        })
-}
-
-function modalEditMode(input) {
-    if (input === 'edit') {
-        $('#modal--title').removeAttr('readonly')
-        $('#modal--body').removeAttr('readonly')
-    } else {
-        $('#modal--title').attr('readonly')
-        $('#modal--body').attr('readonly')
-    }
-}

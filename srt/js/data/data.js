@@ -89,7 +89,7 @@ function editPost(id, title, body) {
 
 function printPost(post) {
     $("#posts--container").append(`<article class='post shadows' id='${post.id}'>
-        <img userID='${post.userId}' class='open--modal' src="https://picsum.photos/200/200?random=${post.id}">
+        <img userID='${post.userId}' class='open--modal clickable' src="https://picsum.photos/200/200?random=${post.id}">
         <div class='post--content'>
             <button userID='${post.userId}' value='${post.id}' class='post--content--title clickable open--modal'>${post.title}</button>
             <button userID='${post.userId}' value='${post.id}' class='post--content--body clickable open--modal'>${post.body}</button> </div>
@@ -118,7 +118,7 @@ function printUser(user) {
   $(".modal--username").text(user.username);
   $(".modal--mail").text(user.email);
 }
-function getPost(title, url, body) {
+function getPost(title, url, body, id) {
     $('.modal--post--title').val(title)
     $('.modal--post--body').val(body)
     $('#modal--image').attr('src', url)

@@ -5,9 +5,10 @@ import {editModalListeners, modalEditMode, modalInputListeners} from './modal/ed
 $(document).ready(function () {
     detectScrollBottom();
     getPosts('https://jsonplaceholder.typicode.com/posts');
-    buttonListenersPost();
+    buttonListenersPosts();
     editModalListeners();
     modalInputListeners();
+    buttonsPostModal()
 });
 
 function buttonListenersPosts() {

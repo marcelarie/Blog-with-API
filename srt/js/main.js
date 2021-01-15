@@ -1,13 +1,13 @@
-import {getPosts, getUser, getPost, detectScrollBottom} from './data/data.js'
+import {getPosts, getUser, getPost, deletePost, detectScrollBottom} from './data/data.js'
 import {showOrHide, filterContent} from './modal/showModal.js'
 
 $(document).ready(function () {
     detectScrollBottom();
     getPosts('https://jsonplaceholder.typicode.com/posts');
-    buttonListeners();
+    buttonListenersPost();
 });
 
-function buttonListeners() {
+function buttonListenersPost() {
     document.addEventListener('click', function (e) {
         const userId = e.target.getAttribute('userId');
         const parent = e.target.parentElement
@@ -21,6 +21,9 @@ function buttonListeners() {
             }
             showOrHide('show')
             getUser(userId);
-        };
+        } else if (e.target &&
+            e.target.classList.contains('post--buttons--delete')) {
+            deletePost(e.target.value)
+        }
     });
 };

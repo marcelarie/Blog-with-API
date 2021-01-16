@@ -16,7 +16,7 @@ function filterContent(parentTag, parent) {
         const title = parent.children[1].children[0].textContent
         const body = parent.children[1].children[1].textContent
         const url = splittedUrl.map(item => {
-            item = item.replace('200', '600')
+            item = item.replace('400', '600')
             return item
         })
         const result = {title, body, url}
@@ -28,7 +28,7 @@ function filterContent(parentTag, parent) {
         const splittedUrl = parent.parentElement.children[0]
             .getAttribute('src').split('/')
         const url = splittedUrl.map(item => {
-            item = item.replace('200', '600')
+            item = item.replace('400', '600')
             return item
         })
         const result = {title, body, url}
@@ -39,7 +39,7 @@ function filterContent(parentTag, parent) {
         const splittedUrl = parent.parentElement.children[0]
             .getAttribute('src').split('/')
         const url = splittedUrl.map(item => {
-            item = item.replace('200', '600')
+            item = item.replace('400', '600')
             return item
         })
         const result = {title, body, url}

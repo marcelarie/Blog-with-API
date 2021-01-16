@@ -158,6 +158,19 @@ main {
     overflow: hidden;
     overflow-y: scroll;
 }
+.modal--buttons--edit {
+    background-color: transparent;
+    color: var(--light-grey);
+    border: none;
+    outline: none;
+    font-size: 2.3em;
+    float: right;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.modal--buttons--edit:active {
+    color: var(--smooth);
+}
 .modal--buttons--close {
     background-color: transparent;
     color: var(--light-grey);
@@ -167,6 +180,7 @@ main {
     margin-left:0.5em;
 }
 .modal--post {
+    color: var(--light);
     min-width: 81vw;
     padding: 0 1.5em;
     display: flex;
@@ -181,8 +195,6 @@ main {
     border-radius: 5px;
     width: 50%;
     height:auto;
-    max-height: 500px;
-    max-width: 500px;
 }
 .modal--post textarea:first-child {
     font-size: xx-large;
@@ -204,6 +216,8 @@ main {
     min-height: 80%;
     min-width: 100%;
     font-weight: 700;
+    word-break: break-all;
+    /* word-wrap: break-word; */
 }
 .modal--username {
     margin: 0 0.25em;
@@ -237,6 +251,7 @@ main {
     transform: translateY(2px);
     transform: translateX(2px);
     font-size: 1.35em;
+    margin: 0.04em 0;
     transition: 0s;
 }
 .modal--comments--container{

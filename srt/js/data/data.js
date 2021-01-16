@@ -89,7 +89,7 @@ function editPost(id, title, body) {
 
 function printPost(post) {
     $("#posts--container").append(`<article class='post shadows' id='${post.id}'>
-        <img userID='${post.userId}' class='open--modal' src="https://picsum.photos/200/200?random=${post.id}">
+        <img userID='${post.userId}' class='open--modal' src="https://picsum.photos/600/600?random=${post.id}">
         <div class='post--content'>
             <button userID='${post.userId}' value='${post.id}' class='post--content--title clickable open--modal'>${post.title}</button>
             <button userID='${post.userId}' value='${post.id}' class='post--content--body clickable open--modal'>${post.body}</button> </div>

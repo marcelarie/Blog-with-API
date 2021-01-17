@@ -3,11 +3,11 @@ import {clone} from '../data/clone.js'
 function editModalListeners() {
     document.addEventListener('click',
         function (e) {
-            if (e.target && e.target.textContent === 'done_outline') {
+            if (e.target && $(e.target).text('done_outline')) {
                 saveButton('nosave');
                 modalEditMode('noedit');
-            } else if (e.target && e.target.classList
-                .contains('post--buttons--edit')) {
+            } else if (e.target && $(e.target)
+                .hasClass('post--buttons--edit')) {
                 saveButton('save');
                 modalEditMode('edit');
             }
@@ -31,7 +31,8 @@ function modalInputListeners() {
             const id = $('#edit--on--post').attr('post--id')
             const userId = $('#edit--on--post').attr('user--id')
             clone.forEach(post => {
-                if (post.userId === parseFloat(userId) && post.id === parseFloat(id)) {
+                if (post.userId === parseFloat(userId)
+                    && post.id === parseFloat(id)) {
                     post.body = e.target.value;
                 }
             })

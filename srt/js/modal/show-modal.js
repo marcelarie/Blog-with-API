@@ -1,11 +1,11 @@
 
 function showOrHide(parameter) {
-    const modal = document.getElementById('modal')
+    const modal = $('#modal')
 
     if (parameter === 'show') {
-        modal.classList.remove('none');
+        modal.removeClass('none');
     } else if (parameter === 'hide') {
-        modal.classList.add('none');
+        modal.addClass('none')
         $('.modal--comments--container').text('');
     }
 };

@@ -32,7 +32,7 @@ function buttonListenersPosts() {
         const userId = e.target.getAttribute('userId')
         const id = e.target.getAttribute('value')
         // const parent = e.target.parentElement
-        if (e.target && e.target.classList.contains('open--modal')) {
+        if (e.target && $(e.target).hasClass('open--modal')) {
             clone.forEach(i => {
                 if (i.userId === parseFloat(userId) && i.id === parseFloat(id)) {
                     getPost(i.title, 'https://picsum.photos/600/600?random',
@@ -41,9 +41,9 @@ function buttonListenersPosts() {
             });
             showOrHide('show');
             getUser(userId);
-        } else if (e.target && e.target.classList.contains('post--buttons--delete')) {
+        } else if (e.target && $(e.target).hasClass('post--buttons--delete')) {
             deletePost(e.target.value);
-        } else if (e.target && e.target.classList.contains('post--buttons--edit')) {
+        } else if (e.target && $(e.target).hasClass('post--buttons--edit')) {
             clone.forEach(i => {
                 if (i.userId === parseFloat(userId) && i.id === parseFloat(id)) {
                     getPost(i.title, 'https://picsum.photos/600/600?random',
@@ -58,11 +58,11 @@ function buttonListenersPosts() {
 
 function buttonsPostModal() {
     $('#modal').on('click', function (e) {
-        if (e.target && e.target.classList.contains('modal--buttons--close')) {
+        if (e.target && $(e.target).hasClass('modal--buttons--close')) {
             modalEditMode('noedit');
             saveButton('nosave');
             showOrHide('hide');
-        } else if (e.target && e.target.classList.contains('modal--comments-load')) {
+        } else if (e.target && $(e.target).hasClass('modal--comments-load')) {
             getComments(e.target.value);
         }
     })

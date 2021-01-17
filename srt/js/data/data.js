@@ -61,6 +61,9 @@ function getComments(id) {
         success: function (data, textStatus) {
             $(".modal--comments--container").text('');
             data.forEach(comment => printComment(comment));
+            document.querySelector('#modal--comments').scrollIntoView({
+                behavior: 'smooth'
+            });
         },
         error: function (jqXHR, textStatus, errorThrown) {
             // error callback
@@ -109,8 +112,6 @@ function printComment(comment) {
     <p class='comment--body'>${comment.body}</p>
 </div>`;
     $(".modal--comments--container").append(c)
-
-
 }
 
 function printUser(user) {

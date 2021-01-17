@@ -117,11 +117,13 @@ function printUser(user) {
     $(".modal--username").text(user.username);
     $(".modal--mail").text(user.email);
 }
-function getPost(title, url, body, id) {
+function getPost(title, url, body, userId, id) {
     $('.modal--post--title').val(title)
     $('.modal--post--body').val(body)
     $('#modal--image').attr('src', url)
-    document.querySelector('.modal--comments-load').value = id;
+    $('#edit--on--post').attr('post--id', id)
+    $('#edit--on--post').attr('user--id', userId)
+    document.querySelector('.modal--comments-load').value = userId;
 }
 
 function deletePost(id) {

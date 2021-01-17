@@ -13,6 +13,7 @@ import {
     editModalListeners,
     modalEditMode,
     modalInputListeners,
+    saveButton
 } from './modal/edit-modal.js'
 
 import {clone} from './data/clone.js'
@@ -35,7 +36,7 @@ function buttonListenersPosts() {
             clone.forEach(i => {
                 if (i.userId === parseFloat(userId) && i.id === parseFloat(id)) {
                     getPost(i.title, 'https://picsum.photos/600/600?random',
-                        i.body, i.userId)
+                        i.body, i.userId, i.id)
                 }
             });
             showOrHide('show');
@@ -46,7 +47,7 @@ function buttonListenersPosts() {
             clone.forEach(i => {
                 if (i.userId === parseFloat(userId) && i.id === parseFloat(id)) {
                     getPost(i.title, 'https://picsum.photos/600/600?random',
-                        i.body, i.userId);
+                        i.body, i.userId, i.id);
                 }
             })
             showOrHide('show');
@@ -59,6 +60,7 @@ function buttonsPostModal() {
     $('#modal').on('click', function (e) {
         if (e.target && e.target.classList.contains('modal--buttons--close')) {
             modalEditMode('noedit');
+            saveButton('nosave');
             showOrHide('hide');
         } else if (e.target && e.target.classList.contains('modal--comments-load')) {
             getComments(e.target.value);

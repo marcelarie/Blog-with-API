@@ -168,6 +168,9 @@ main {
     overflow-y: scroll;
     padding: 1.5em;
 }
+.modal--container {
+    padding: 3em 0.75em;
+}
 .modal--buttons--edit {
     background-color: transparent;
     color: var(--light-grey);
@@ -182,31 +185,30 @@ main {
     color: var(--smooth);
 }
 .modal--buttons--close {
-    position: absolute;
-    right:7vw;
+    position: fixed;
+    top: 5px;
     background-color: transparent;
     color: var(--light-grey);
     outline: none;
     border: none;
-    font-size: 3em;
-    margin-left:0.25em;
+    font-size: 2em;
+    /* margin-left:0.5em; */
 }
 .modal--post {
     color: var(--light);
-    padding: 0 1.5em;
+    padding: 0 2.5em;
     display: flex;
-    min-height: 70vh;
     
 }
 .modal--post--content {
     flex: 1;
     padding: 0 2em;
+    height:30vw;
 }
 .modal--post img {
     margin: 0 auto;
     border-radius: 5px;
-    width: 50%;
-    height:auto;
+    
 }
 .modal--post textarea:first-child {
     font-size: xx-large;
@@ -225,7 +227,7 @@ main {
     margin: 1em 0.5em;
     text-align: justify;
     text-transform: capitalize;
-    min-height: 80%;
+    min-height: 50%;
     min-width: 100%;
     font-weight: 700;
     word-break: break-all;
@@ -248,7 +250,8 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    min-width: 500px;
+    width: 30vw;
+    height:30vw;
 }
 .modal--comments button {
     all: unset;

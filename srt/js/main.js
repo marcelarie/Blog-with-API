@@ -34,7 +34,8 @@ function buttonListenersPosts() {
         if (e.target && e.target.classList.contains('open--modal')) {
             clone.forEach(i => {
                 if (i.userId === parseFloat(userId) && i.id === parseFloat(id)) {
-                    getPost(i.title, 'https://picsum.photos/600/600?random', i.body, i.userId)
+                    getPost(i.title, 'https://picsum.photos/600/600?random',
+                        i.body, i.userId)
                 }
             });
             showOrHide('show');
@@ -44,7 +45,8 @@ function buttonListenersPosts() {
         } else if (e.target && e.target.classList.contains('post--buttons--edit')) {
             clone.forEach(i => {
                 if (i.userId === parseFloat(userId) && i.id === parseFloat(id)) {
-                    getPost(i.title, 'https://picsum.photos/600/600?random', i.body, i.userId);
+                    getPost(i.title, 'https://picsum.photos/600/600?random',
+                        i.body, i.userId);
                 }
             })
             showOrHide('show');

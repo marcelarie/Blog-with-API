@@ -158,6 +158,9 @@ main {
     overflow: hidden;
     overflow-y: scroll;
 }
+.modal--container {
+    padding: 3em 0.75em;
+}
 .modal--buttons--edit {
     background-color: transparent;
     color: var(--light-grey);
@@ -172,6 +175,8 @@ main {
     color: var(--smooth);
 }
 .modal--buttons--close {
+    position: fixed;
+    top: 5px;
     background-color: transparent;
     color: var(--light-grey);
     outline: none;
@@ -213,7 +218,7 @@ main {
     margin: 1em 0.5em;
     text-align: justify;
     text-transform: capitalize;
-    min-height: 80%;
+    min-height: 75%;
     min-width: 100%;
     font-weight: 700;
     word-break: break-all;

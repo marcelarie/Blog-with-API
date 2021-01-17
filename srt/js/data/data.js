@@ -1,6 +1,7 @@
+import {cloneJSON, clone} from './clone.js'
+
 let start = 0;
 let canLoadMore = true;
-let posts = [];
 
 function getPosts() {
     if (start < 100) {
@@ -8,8 +9,8 @@ function getPosts() {
             url: `https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=9`,
             type: "GET",
             success: function (data, textStatus, jqXHR) {
-                posts = posts.concat(data);
-                printAllPosts(data);
+                cloneJSON(data)
+                printAllPosts(data)
                 start += 9;
                 canLoadMore = true;
             },
@@ -30,12 +31,10 @@ function detectScrollBottom() {
     });
 }
 function detectBottom() {
-    console.log('aaaa');
     let lastPost = $(".post:last-child");
     if (
-        $(lastPost).position().top - $(".posts").height() + $(lastPost).height() <=
-        0 &&
-        canLoadMore
+        $(lastPost).position().top - $(".posts").height() +
+        $(lastPost).height() <= 0 && canLoadMore
     ) {
         getPosts();
         canLoadMore = false;
@@ -89,12 +88,12 @@ function editPost(id, title, body) {
 
 function printPost(post) {
     $("#posts--container").append(`<article class='post shadows' id='${post.id}'>
-        <img userID='${post.userId}' class='open--modal' src="https://picsum.photos/600/600?random=${post.id}">
+        <img userID='${post.userId}' value='${post.id}' class='open--modal' src="https://picsum.photos/600/600?random=${post.id}">
         <div class='post--content'>
             <button userID='${post.userId}' value='${post.id}' class='post--content--title clickable open--modal'>${post.title}</button>
             <button userID='${post.userId}' value='${post.id}' class='post--content--body clickable open--modal'>${post.body}</button> </div>
         <div class='post--buttons'>
-            <button userID='${post.userId}' value='${post.id}' class='post--buttons--edit material-icons clickable shadows'>edit</button>
+            <button userID='${post.userId}' value='${post.id}' class='open--modal post--buttons--edit material-icons clickable shadows'>edit</button>
             <button userID='${post.userId}' value='${post.id}' class='post--buttons--delete material-icons clickable shadows'>delete</button>
         </div>
     </article>`);

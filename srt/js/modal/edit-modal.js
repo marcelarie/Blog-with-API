@@ -20,8 +20,9 @@ function modalEditMode(input) {
         $('#modal--title').removeAttr('readonly')
         $('#modal--body').removeAttr('readonly')
     } else {
-        $('#modal--title').attr('readonly')
-        $('#modal--body').attr('readonly')
+        console.log('noedit')
+        $('#modal--title').attr('readonly', true)
+        $('#modal--body').attr('readonly', true)
     }
 }
 

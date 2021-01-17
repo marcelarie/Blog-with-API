@@ -182,12 +182,12 @@ main {
     outline: none;
     border: none;
     font-size: 2em;
-    margin-left:0.5em;
+    /* margin-left:0.5em; */
 }
 .modal--post {
     color: var(--light);
     min-width: 81vw;
-    padding: 0 1.5em;
+    padding: 0 2.5em;
     display: flex;
     min-height: 70vh;
 }

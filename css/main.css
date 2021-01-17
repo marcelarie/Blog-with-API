@@ -165,10 +165,7 @@ main {
     transition: right 1s ease-in-out;
     overflow: hidden;
     overflow-y: scroll;
-    padding: 1.5em;
-}
-.modal--container {
-    padding: 3em 0.75em;
+    padding: 3em 2.5em;
 }
 .modal--buttons--edit {
     background-color: transparent;
@@ -185,7 +182,7 @@ main {
 }
 .modal--buttons--close {
     position: absolute;
-    left: 1.25em;
+    left: 1em;
     top:0.25em;
     background-color: transparent;
     color: var(--light-grey);
@@ -196,7 +193,6 @@ main {
 }
 .modal--post {
     color: var(--light);
-    padding: 0 2.5em;
     display: flex;
     
 }
@@ -243,7 +239,7 @@ main {
     font-size: 1em;
 }
 .modal--comments {
-    padding: 2em;
+    padding: 2em 0;
     
 }
 .modal--image {

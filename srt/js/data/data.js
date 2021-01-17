@@ -84,7 +84,7 @@ function getComments(id) {
 
 function editPost(id) {
     $.ajax({
-        url: "https://jsonplaceholder.typicode.com/posts" + id,
+        url: "https://jsonplaceholder.typicode.com/posts/" + id,
         type: "PATCH",
         timeout: 0,
         headers: {

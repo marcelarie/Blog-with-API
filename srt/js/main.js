@@ -31,13 +31,12 @@ function buttonListenersPosts() {
     $('.posts').on('click', function (e) {
         const userId = e.target.getAttribute('userId')
         const id = e.target.getAttribute('value')
-        // const parent = e.target.parentElement
+        const urlImg = $(e.target).closest('img')[0].src
         if (e.target && $(e.target).hasClass('open--modal')) {
             clone.forEach(i => {
                 if (i.userId === parseFloat(userId)
                     && i.id === parseFloat(id)) {
-                    getPost(i.title, 'https://picsum.photos/600/600?random',
-                        i.body, i.userId, i.id)
+                    getPost(i.title, urlImg, i.body, i.userId, i.id)
                 }
             });
             showOrHide('show');
@@ -48,8 +47,7 @@ function buttonListenersPosts() {
             clone.forEach(i => {
                 if (i.userId === parseFloat(userId)
                     && i.id === parseFloat(id)) {
-                    getPost(i.title, 'https://picsum.photos/600/600?random',
-                        i.body, i.userId, i.id);
+                    getPost(i.title, urlImg, i.body, i.userId, i.id);
                 }
             });
             showOrHide('show');

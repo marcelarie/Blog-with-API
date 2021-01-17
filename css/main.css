@@ -159,7 +159,6 @@ main {
 }
 .modal--container{
     position: relative;
-    
     border-right: 10px solid var(--light-grey);
     margin-right: 20vh;
     height: 100vh;
@@ -185,8 +184,9 @@ main {
     color: var(--smooth);
 }
 .modal--buttons--close {
-    position: fixed;
-    top: 5px;
+    position: absolute;
+    left: 1.25em;
+    top:0.25em;
     background-color: transparent;
     color: var(--light-grey);
     outline: none;
@@ -221,6 +221,7 @@ main {
     text-transform: capitalize;
     font-weight: 700;
     color: var(--main);
+    min-height: 20%;
 }
 .modal--post--body {
     all: unset;
@@ -229,7 +230,7 @@ main {
     text-transform: capitalize;
     min-height: 50%;
     min-width: 100%;
-    font-weight: 700;
+    font-weight: 400;
     word-break: break-all;
     /* word-wrap: break-word; */
 }

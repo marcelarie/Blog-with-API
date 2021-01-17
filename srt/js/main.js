@@ -33,10 +33,10 @@ function buttonListenersPosts() {
         const id = e.target.getAttribute('value')
         const urlImg = $(e.target).closest('img')[0].src
         if (e.target && $(e.target).hasClass('open--modal')) {
-            clone.forEach(i => {
-                if (i.userId === parseFloat(userId)
-                    && i.id === parseFloat(id)) {
-                    getPost(i.title, urlImg, i.body, i.userId, i.id)
+            clone.forEach(post => {
+                if (post.userId === parseFloat(userId)
+                    && post.id === parseFloat(id)) {
+                    getPost(post.title, urlImg, post.body, post.userId, post.id)
                 }
             });
             showOrHide('show');
@@ -44,10 +44,10 @@ function buttonListenersPosts() {
         } else if (e.target && $(e.target).hasClass('post--buttons--delete')) {
             deletePost(e.target.value);
         } else if (e.target && $(e.target).hasClass('post--buttons--edit')) {
-            clone.forEach(i => {
-                if (i.userId === parseFloat(userId)
-                    && i.id === parseFloat(id)) {
-                    getPost(i.title, urlImg, i.body, i.userId, i.id);
+            clone.forEach(post => {
+                if (post.userId === parseFloat(userId)
+                    && post.id === parseFloat(id)) {
+                    getPost(post.title, urlImg, post.body, post.userId, post.id);
                 }
             });
             showOrHide('show');

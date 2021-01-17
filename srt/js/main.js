@@ -34,7 +34,8 @@ function buttonListenersPosts() {
         // const parent = e.target.parentElement
         if (e.target && $(e.target).hasClass('open--modal')) {
             clone.forEach(i => {
-                if (i.userId === parseFloat(userId) && i.id === parseFloat(id)) {
+                if (i.userId === parseFloat(userId)
+                    && i.id === parseFloat(id)) {
                     getPost(i.title, 'https://picsum.photos/600/600?random',
                         i.body, i.userId, i.id)
                 }
@@ -45,11 +46,12 @@ function buttonListenersPosts() {
             deletePost(e.target.value);
         } else if (e.target && $(e.target).hasClass('post--buttons--edit')) {
             clone.forEach(i => {
-                if (i.userId === parseFloat(userId) && i.id === parseFloat(id)) {
+                if (i.userId === parseFloat(userId)
+                    && i.id === parseFloat(id)) {
                     getPost(i.title, 'https://picsum.photos/600/600?random',
                         i.body, i.userId, i.id);
                 }
-            })
+            });
             showOrHide('show');
             getUser(userId);
         }

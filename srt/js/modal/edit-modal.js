@@ -3,7 +3,7 @@ import {clone} from '../data/clone.js'
 function editModalListeners() {
     document.addEventListener('click',
         function (e) {
-            if (e.target && $(e.target).text('done_outline')) {
+            if (e.target && e.target.textContent === 'done_outline') {
                 saveButton('nosave');
                 modalEditMode('noedit');
             } else if (e.target && $(e.target)

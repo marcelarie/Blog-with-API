@@ -151,12 +151,22 @@ main {
     position: absolute;
     background-color: var(--dark);
     height: 100vh;
-    border-left: 5px solid var(--light-grey);
+    border-left: 10px solid var(--light-grey);
     right: 0;
-    max-width: 81%;
+    max-width: 80%;
+    transition: right 1s ease-in-out;
+    
+}
+.modal--container{
+    position: relative;
+    
+    border-right: 10px solid var(--light-grey);
+    margin-right: 20vh;
+    height: 100vh;
     transition: right 1s ease-in-out;
     overflow: hidden;
     overflow-y: scroll;
+    padding: 1.5em;
 }
 .modal--buttons--edit {
     background-color: transparent;
@@ -172,19 +182,21 @@ main {
     color: var(--smooth);
 }
 .modal--buttons--close {
+    position: absolute;
+    right:7vw;
     background-color: transparent;
     color: var(--light-grey);
     outline: none;
     border: none;
-    font-size: 2em;
-    margin-left:0.5em;
+    font-size: 3em;
+    margin-left:0.25em;
 }
 .modal--post {
     color: var(--light);
-    min-width: 81vw;
     padding: 0 1.5em;
     display: flex;
     min-height: 70vh;
+    
 }
 .modal--post--content {
     flex: 1;
